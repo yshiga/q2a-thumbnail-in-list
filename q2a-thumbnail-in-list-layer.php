@@ -2,6 +2,36 @@
 
 class qa_html_theme_layer extends qa_html_theme_base
 {
+	public function head_css()
+	{
+		qa_html_theme_base::head_css();
+		$css = "
+/* 質問リストのサムネイル */
+.qa-q-item-thmub {
+  margin: 0 0 0 10px;
+  width:120px;
+  height:90px;
+  overflow:hidden;
+  position:relative;
+  float: left;
+}
+.qa-q-item-thmub img {
+  max-width:140%;
+  min-width:100%;
+  width:auto;
+  min-height:100%;
+  max-height:140%;
+  height:auto;
+  position:absolute;
+  top:-40%;
+  right:-40%;
+  bottom:-40%;
+  left:-40%;
+  margin:auto;
+}
+";
+		$this->output('<style>', $css, '</style>');
+	}
 
 	public function q_list_item($q_item)
 	{
